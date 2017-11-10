@@ -1,2 +1,2 @@
 # flowcollector
-Python based netflow collector
+Simple Netflow version 5 collector written in Python
