@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 import socket
-import struct
+from struct import unpack
 from unpacker import Unpacker
 """
 BYTES	CONTENTS	DESCRIPTION
@@ -35,9 +35,13 @@ unpck = Unpacker.Unpacker()
 while True:
     try:
         print('listening..')
-        (packetbuf, addr) = sock.recvfrom(65535)
-        version = unpck.unpackbufferint(packetbuf, 0, 2)
-        print(str(version))
+        (packet, addr) = sock.recvfrom(65535)
+        version, count = unpack('!HH',packet[0:4])
+        print("We have " + str(count) + " packets and Version is:  " + str(version))
+        print(str(addr))
+        # version = unpck.unpackbufferint(packetbuf, 0, 2)
+        # print(str(addr))
+        # print(str(version))
         # totalrecord = unpck.unpackbufferint(packetbuf, 2, 2)
         # # as per the Netflow version 5 Standard..
         # if totalrecord < 1 or totalrecord > 30:
