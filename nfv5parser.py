@@ -30,7 +30,7 @@ BYTES	CONTENTS	DESCRIPTION
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
-sock.bind(('0.0.0.0', 2055))
+sock.bind(('127.0.0.1', 2055))
 unpck = Unpacker.Unpacker()
 while True:
     try:
