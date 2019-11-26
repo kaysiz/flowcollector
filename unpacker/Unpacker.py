@@ -8,4 +8,4 @@ class Unpacker:  # created this class so that I don't have to remember struct.un
         if size == 4:
             return struct.unpack('!I', buff[pointer:pointer + size])[0]
         else:
-            print 'Invalid integer size: %i' % size
+            print('Invalid integer size: %i' % size)
