@@ -84,6 +84,6 @@ while True:
         #         l4proto = 'Other'
         #     print "L4 protocol: %s" % l4proto
         #     print "==================="
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
         break
