@@ -29,7 +29,7 @@ BYTES	CONTENTS	DESCRIPTION
 """
 
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # UDP
 sock.bind(('127.0.0.1', 2055))
 unpck = Unpacker.Unpacker()
 while True:
@@ -37,6 +37,7 @@ while True:
         print('listening..')
         (packet, addr) = sock.recvfrom(65535)
         version, count = unpack('!HH',packet[0:4])
+        print("Kuda")
         print("We have " + str(count) + " packets and Version is:  " + str(version))
         print(str(addr))
         # version = unpck.unpackbufferint(packetbuf, 0, 2)
